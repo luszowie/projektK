@@ -1,4 +1,4 @@
-package pl.edu.wszib.projekt.filmy;
+package pl.edu.wszib.projekt.films;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -6,7 +6,7 @@ import java.util.Date;
 @Entity
 @Table(name = "lista_filmow")
 
-public class WybranyFilm {
+public class SelectedFilm {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,11 +14,11 @@ public class WybranyFilm {
     private String film;
     private Date ctime;
 
-    public WybranyFilm() {
+    public SelectedFilm() {
 
     }
 
-    public WybranyFilm(String film, Date ctime) {
+    public SelectedFilm(String film, Date ctime) {
         this.film = film;
         this.ctime = ctime;
     }

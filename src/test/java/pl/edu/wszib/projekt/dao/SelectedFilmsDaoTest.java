@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import pl.edu.wszib.projekt.filmy.WybranyFilm;
+import pl.edu.wszib.projekt.films.SelectedFilm;
 
 import java.util.Date;
 import java.util.List;
@@ -14,26 +14,26 @@ import java.util.List;
 import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class WybranyWybranyFilmDaoTest {
+public class SelectedFilmsDaoTest {
 
     public static final String WybranyFilm1 = "film1";
     public static final String WybranyFilm2 = "film2";
 
     @Autowired
-    WybranyFilmDao wybranyFilmDao;
+    SelectedFilmsDao selectedFilmsDao;
 
     @Before
     public void setUp() throws Exception {
 
 
-            WybranyFilm film1 = new WybranyFilm(WybranyFilm1, new Date());
-            WybranyFilm film2 = new WybranyFilm(WybranyFilm2, new Date());
+            SelectedFilm film1 = new SelectedFilm(WybranyFilm1, new Date());
+            SelectedFilm film2 = new SelectedFilm(WybranyFilm2, new Date());
 
             assertNull(film1.getId());
             assertNull(film2.getId());
 
-            wybranyFilmDao.save(film1);
-            wybranyFilmDao.save(film2);
+            selectedFilmsDao.save(film1);
+            selectedFilmsDao.save(film2);
             System.out.println("----------------------------");
             assertNotNull(film1.getId());
             assertNotNull(film2.getId());
@@ -43,9 +43,9 @@ public class WybranyWybranyFilmDaoTest {
         @Test
         public void testPobierzWszystkieDane () {
 
-            Iterable<WybranyFilm> wybranyFilms = wybranyFilmDao.findAll();
+            Iterable<SelectedFilm> wybranyFilms = selectedFilmsDao.findAll();
             int counter = 0;
-            for (WybranyFilm wybranyFilm : wybranyFilms) {
+            for (SelectedFilm selectedFilm : wybranyFilms) {
                 counter++;
             }
 
@@ -53,9 +53,9 @@ public class WybranyWybranyFilmDaoTest {
         }
     @Test
     public void testFindFilm() {
-        List<WybranyFilm> wybranyFilms = wybranyFilmDao.findByFilm(WybranyFilm1);
+        List<SelectedFilm> selectedFilms = selectedFilmsDao.findByFilm(WybranyFilm1);
         System.out.println("--------------------------------");
-        assertEquals(WybranyFilm1,wybranyFilms.get(0).getFilm());
+        assertEquals(WybranyFilm1, selectedFilms.get(0).getFilm());
 
 
     }

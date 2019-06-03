@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+
+    <h1 th:text="${title}"></h1>
+
+    <table>
+        <tr th:each="filmsRow: ${films}">
+            <td width="100px" height="100px"
+            th:each="film : ${filmsRow}"
+            th:attr="text=${film}"
+            th:onclick="'location.fref= \'' + @{/select/{c}(c=${film})} + ' \''">
+
+
+            </td>
+
+
+        </tr>
+
+
+    </table>
+
+
+
+</body>
+</html>
