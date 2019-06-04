@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="Windows-88592">
+    <title th:text = "${title}"></title>
+</head>
+
+<body>
+    <table>
+    <tr>
+        <th width="50px">Id</th>
+        <th width="50px">Film</th>
+        <th width="200px">Data</th>
+
+
+    </tr>
+
+    <tr th:each="selectedFilm : ${selectedFilms}">
+        <td th:text="${selectedFilm.id}"></td>
+        <td th:text="${selectedFilm.film}"></td>
+        <td th:text="${selectedFilm.ctime}"></td>
+    </tr>
+    </table>
+
+</body>
+</html>

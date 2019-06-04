@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="Windows-88592">
+    <title th:text= "${title}"></title>
+
+
+    </head>
+<body>
+
+    <h1 th:text= "${title}"></h1>
+
+    <table>
+        <tr th:each="filmsRow : ${films}" >
+            <td width="100px" height="100px"
+                th:each="film : ${filmsRow}"
+                th:attr="bgcolor=red"
+                th:text="${film}"
+                th:onclick="'location.href= \'' + @{/select/{c}(c=${film})} + ' \''"
+            />
+
+
+        </tr>
+
+
+    </table>
+
+
+
+</body>
+</html>

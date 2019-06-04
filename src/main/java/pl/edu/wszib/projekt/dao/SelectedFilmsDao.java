@@ -7,7 +7,7 @@ import pl.edu.wszib.projekt.films.SelectedFilm;
 import java.util.List;
 @Repository
 public interface SelectedFilmsDao extends CrudRepository<SelectedFilm, Integer> {
-    List<SelectedFilm> findByFilm (String title);
+    List<SelectedFilm> findByFilm (String film);
 
 
 

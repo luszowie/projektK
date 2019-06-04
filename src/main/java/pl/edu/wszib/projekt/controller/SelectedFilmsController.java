@@ -1,4 +1,4 @@
-/*
+
 package pl.edu.wszib.projekt.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,14 +16,14 @@ import java.util.Date;
 @Controller
 public class SelectedFilmsController {
 
-    @Value("${app.header.select_film}")
+   @Value("${app.header.select_film}")
     private String title;
 
     @Autowired
     SelectedFilmsDao selectedFilmsDao;
 
     @GetMapping({"/select", "/select/{film}"})
-    public String WybranyfilmPage(@PathVariable(required = false) String film, Model model) {
+    public String SelectedfilmPage(@PathVariable(required = false) String film, Model model) {
 
         if (!StringUtils.isEmpty(film)) {
             selectedFilmsDao.save(new SelectedFilm(film, new Date()));
@@ -51,4 +51,4 @@ public class SelectedFilmsController {
 
 
 }
-*/
+
