@@ -6,38 +6,66 @@
 </head>
 <body>
 
-    <h1 th:text = "{title}"></h1>
+    <h1 th:text = "${title}"></h1>
 
     <div style="max-width: 800px; margin: 50px auto">
-        <canvas id="myChart" width = "1600" heght="900"></canvas>
-
+        <canvas id="myChart" width="1600" height="900"></canvas>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
     <script th:inline="javascript">
-        new Chart(document.getElementById("bar-chart"), {
-            type: 'bar',
-            data: {
-                labels: [[$(labels)]],
-                datasets: [
-                    {
-                        label: "Population (millions)",
-                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                        data: [2478,5267,734,784,433]
-                    }
-                ]
-            },
-            options: {
-                legend: { display: false },
-                scales: {
-                    yAxes: [{
-                        ticks: {beginAtZero: true}
-                    }
-                    ]
+
+    new Chart(document.getElementById("myChart"), {
+        type: 'bar',
+        data: {
+            labels: [[${dataMap.keySet()}]],
+            //labels: [[${dataMap.keySet()}]],
+            //labels: [[${selectedFilms}]],
+            //labels: ["Titanic", "Koszmar z ulicy Wiązów",
+    //"Avengers", "Krzyk"],
+            //labels: [[${selectedFilms}]],
+            datasets: [
+                {
+                    label: "Population (millions)",
+                   // backgroundColor: [[${labels}]],
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                   data: [[${dataMap.values()}]],
+                    //data: [[${selectedFilmCollections}]]
+                    //data: [[${selectedfilms}]]
                 }
+            ]
+        },
+        options: {
+            legend: {display: false},
+            scales: {
+                yAxes: [{
+                    ticks: {beginAtZero: true}
+                }]
             }
         }
-        });
+    }
+    );
+
+    </script>
+
+
+
+
+    <!--<table>
+        <tr>
+            <th width="100%">Wybrane filmy</th>
+
+
+
+        </tr>
+
+        <tr th:each="selectedFilm : ${selectedFilms}">
+            <td th:text="${selectedFilms}"></td>
+            &lt;!&ndash;<td th:text="${selectedFilms}"></td>&ndash;&gt;
+            &lt;!&ndash;<td th:text="${selectedFilm.ctime}"></td>&ndash;&gt;
+        </tr>
+    </table>-->
 
 </body>
 </html>

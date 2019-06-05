@@ -39,10 +39,10 @@ public class SelectedFilmsController {
 
     }
 
-    @GetMapping("/stat")
+   /* @GetMapping("/stat")
     public String stat() {
         return "stat";
-    }
+    }*/
 
 
 
