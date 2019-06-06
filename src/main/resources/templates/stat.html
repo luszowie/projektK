@@ -5,8 +5,23 @@
     <title th:text = "${title}"></title>
 </head>
 <body>
-
-    <h1 th:text = "${title}"></h1>
+<div class="container">
+    <div class="header">
+        <div class="logo">
+            <h1 th:text= "${title}"></h1>
+            <link rel="stylesheet" href="../styles.css">
+            <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
+                  integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+        </div>
+        <div class="nav">
+            <a href="/select"><i class=""></i>filmy</a>
+            <a class="activePage" href="/stat"><i class=""></i> statystyka</a>
+            <a href="/data"><i class=""></i> dane</a>
+        </div>
+    </div>
+</div>
+<div class="artcile">
 
     <div style="max-width: 800px; margin: 50px auto">
         <canvas id="myChart" width="1600" height="900"></canvas>
@@ -20,19 +35,13 @@
         type: 'bar',
         data: {
             labels: [[${dataMap.keySet()}]],
-            //labels: [[${dataMap.keySet()}]],
-            //labels: [[${selectedFilms}]],
-            //labels: ["Titanic", "Koszmar z ulicy Wiązów",
-    //"Avengers", "Krzyk"],
-            //labels: [[${selectedFilms}]],
+
             datasets: [
                 {
-                    label: "Population (millions)",
-                   // backgroundColor: [[${labels}]],
-                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                   data: [[${dataMap.values()}]],
-                    //data: [[${selectedFilmCollections}]]
-                    //data: [[${selectedfilms}]]
+                    label: "Wybrało osób",
+
+                    backgroundColor: ["#3333ff", "#ff00cc","#8e6b23", "#6600cc", "#ff0000", "#e8c3b9","#3cba9f", "#ffff33", "#3e95cd"],
+                   data: [[${dataMap.values()}]]
                 }
             ]
         },
@@ -49,23 +58,6 @@
 
     </script>
 
-
-
-
-    <!--<table>
-        <tr>
-            <th width="100%">Wybrane filmy</th>
-
-
-
-        </tr>
-
-        <tr th:each="selectedFilm : ${selectedFilms}">
-            <td th:text="${selectedFilms}"></td>
-            &lt;!&ndash;<td th:text="${selectedFilms}"></td>&ndash;&gt;
-            &lt;!&ndash;<td th:text="${selectedFilm.ctime}"></td>&ndash;&gt;
-        </tr>
-    </table>-->
-
+</div>
 </body>
 </html>

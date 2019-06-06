@@ -15,7 +15,6 @@ public class SelectedFilm {
     private Date ctime;
 
     public SelectedFilm() {
-
     }
 
     public SelectedFilm(String film, Date ctime) {

@@ -7,11 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import pl.edu.wszib.projekt.films.SelectedFilm;
-
 import java.util.Date;
 import java.util.List;
-
 import static org.junit.Assert.*;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SelectedFilmsDaoTest {
@@ -25,7 +24,6 @@ public class SelectedFilmsDaoTest {
     @Before
     public void setUp() throws Exception {
 
-
             SelectedFilm film1 = new SelectedFilm(WybranyFilm1, new Date());
             SelectedFilm film2 = new SelectedFilm(WybranyFilm2, new Date());
 
@@ -37,7 +35,6 @@ public class SelectedFilmsDaoTest {
             System.out.println("----------------------------");
             assertNotNull(film1.getId());
             assertNotNull(film2.getId());
-
         }
 
         @Test
@@ -56,10 +53,7 @@ public class SelectedFilmsDaoTest {
         List<SelectedFilm> selectedFilms = selectedFilmsDao.findByFilm(WybranyFilm1);
         System.out.println("--------------------------------");
         assertEquals(WybranyFilm1, selectedFilms.get(0).getFilm());
-
-
     }
-
 }
 
 

@@ -25,41 +25,20 @@ public class StatController {
     @GetMapping("/stat")
    public String stat(@PathVariable(required = false) String film, Model model){
 
-    //@GetMapping("/stat")
-            //public String stat() {
-
-
        Iterable<SelectedFilm> selectedFilms = selectedFilmsDao.findAll();
         Collection<SelectedFilm> selectedFilmCollection = (Collection<SelectedFilm>) selectedFilms;
 
        Map<String, Long> dataMap = selectedFilmCollection.stream()
                .collect(Collectors.groupingBy(SelectedFilm::getFilm, Collectors.counting()));
-     /* for(Map.Entry<String, Long> entry : dataMap.entrySet()){
-            String filmy  = entry.getKey();
-            Long sum = entry.getValue();
-        }*/
 
         List<String> labels = FilmHelper.convertFilms(dataMap.keySet());
-
-
-
 
         model.addAttribute("title", title);
         model.addAttribute("dataMap", dataMap);
         model.addAttribute("labels", labels);
 
-       // model.addAttribute("filmy",  filmy);
-       //model.addAttribute("selectedFilms", selectedFilmCollection.stream().collect(Collectors.groupingBy(SelectedFilm::getFilm, Collectors.counting())));
-      // model.addAttribute("selectedFilms", selectedFilmCollection.stream()
-             // .collect(Collectors.groupingBy(SelectedFilm::getFilm, Collectors.counting())));
-        //model.addAttribute("dataMap", dataMap.entrySet());
-        //model.addAttribute("selectedfilms", selectedFilmCollection.stream()
-              //  .collect(Collectors.groupingBy(SelectedFilm::getFilm, Collectors.counting())));
-        //model.addAttribute("data", selectedFilmCollection.stream()
-             // .collect(Collectors.groupingBy(SelectedFilm::getFilm, Collectors.counting())));
         return "stat";
     }
-
 }
 
 

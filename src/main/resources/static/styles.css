@@ -1,0 +1,49 @@
+:root {
+ --main-dark-blue: #131326;
+ --main-light-grey: #FBFBFB;
+}
+
+body {
+    margin: 0;
+    font-family: 'Realway', sans-serif;
+    background-color: var(--main-light-grey);
+}
+
+.header {
+    background-color: var(--main-dark-blue);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: var(--main-light-grey);
+    height: 100px;
+}
+
+.logo {
+    color: aqua;
+    font-style: italic;
+}
+
+.nav {
+    align-self: center;
+}
+
+.header a{
+    font-size: 1.2em;
+    text-decoration: none;
+    color: var(--main-light-grey);
+}
+
+.nav a {
+    padding: 10px 30px;
+}
+
+.activePage {
+    border-bottom: 5px solid aqua;
+}
+
+.artcile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-size: cover;
+}

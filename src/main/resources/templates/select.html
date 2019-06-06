@@ -4,28 +4,39 @@
     <meta charset="Windows-88592">
     <title th:text= "${title}"></title>
 
-
     </head>
 <body>
-
-    <h1 th:text= "${title}"></h1>
+<div class="container">
+    <div class="header">
+        <div class="logo">
+            <h1 th:text= "${title}"></h1>
+            <link rel="stylesheet" href="../styles.css">
+            <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
+                  integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+        </div>
+        <div class="nav">
+            <a class="activePage" href="/select"><i class=""></i>filmy</a>
+            <a href="/stat"><i class=""></i> statystyka</a>
+            <a href="/data"><i class=""></i> dane</a>
+        </div>
+        </div>
+        </div>
+<div class="artcile">
 
     <table>
         <tr th:each="filmsRow : ${films}" >
-            <td width="100px" height="100px"
+            <td width="200px" height="200px"
                 th:each="film : ${filmsRow}"
                 th:attr="bgcolor=red"
                 th:text="${film}"
                 th:onclick="'location.href= \'' + @{/select/{c}(c=${film})} + ' \''"
             />
 
-
         </tr>
 
-
     </table>
-
-
+    </div>
 
 </body>
 </html>

@@ -8,8 +8,4 @@ import java.util.List;
 @Repository
 public interface SelectedFilmsDao extends CrudRepository<SelectedFilm, Integer> {
     List<SelectedFilm> findByFilm (String film);
-
-
-
-
 }

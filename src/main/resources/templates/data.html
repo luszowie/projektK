@@ -6,12 +6,29 @@
 </head>
 
 <body>
+<div class="container">
+    <div class="header">
+        <div class="logo">
+            <h1 th:text= "${title}"></h1>
+            <link rel="stylesheet" href="../styles.css">
+            <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
+            integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+        </div>
+        <div class="nav">
+            <a href="/select"><i class=""></i>filmy</a>
+            <a href="/stat"><i class=""></i> statystyka</a>
+            <a class="activePage" href="/data"><i class=""></i> dane</a>
+        </div>
+    </div>
+</div>
+<div class="artcile">
+
     <table>
     <tr>
         <th width="50px">Id</th>
-        <th width="50px">Film</th>
+        <th width="200px">Film</th>
         <th width="200px">Data</th>
-
 
     </tr>
 
@@ -21,6 +38,6 @@
         <td th:text="${selectedFilm.ctime}"></td>
     </tr>
     </table>
-
+</div>
 </body>
 </html>

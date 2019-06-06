@@ -1,4 +1,3 @@
-
 package pl.edu.wszib.projekt.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,21 +27,14 @@ public class SelectedFilmsController {
         if (!StringUtils.isEmpty(film)) {
             selectedFilmsDao.save(new SelectedFilm(film, new Date()));
         }
-        String [][] films = {{"Titanic", "Koszmar z ulicy Wiązów"},
-        {"Avengers", "Krzyk"}
-
+        String [][] films = {{"Titanic", "Koszmar z ulicy Wiązów", "Oszukać przeznaczenie"},
+        {"Avengers", "Krzyk", "Kogel mogel"}, {"Avatar", "Goonies", "Indiana Jones"}
         };
 
         model.addAttribute("title", title);
         model.addAttribute("films", films);
         return "select";
-
     }
-
-   /* @GetMapping("/stat")
-    public String stat() {
-        return "stat";
-    }*/
 
 
 
